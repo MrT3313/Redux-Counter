@@ -1,5 +1,6 @@
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
+// ACTION TYPES
+  export const INCREMENT = 'INCREMENT';
+  export const DECREMENT = 'DECREMENT';
 
 // Our action creators will return
 // an action packet that our reducer will
@@ -9,10 +10,34 @@ export const DECREMENT = 'DECREMENT';
 // logic of updating the central Redux store. That
 // is left to the reducer(s).
 
-export const increment = () => {
-  // Fill in this function
+
+
+// ACTION CREATOR
+export const increment = (countFromCounterProps) => {
+  // ** V1 ** //
+  // DEBUGGING
+  console.log('passed COUNT in action creator + : ', countFromCounterProps)  
+  return {
+    type: INCREMENT,
+    payload: countFromCounterProps
+  }
+
 };
 
-export const decrement = () => {
-  // Fill in this function
+// ACTION CREATOR
+export const decrement = (countFromCounterProps) => {
+  // ** V1 ** //
+  // DEBUGGING
+    console.log('passed COUNT in action creator - : ', countFromCounterProps)
+  return {
+    type: DECREMENT,
+    payload: countFromCounterProps
+  }
+
 };
+
+
+// *** CONNECTIONS *** //
+
+// EXPORT -- ACTION CREATOR functions
+// IMPORT -- @ appropriate component CONNECT FUNCTION 
