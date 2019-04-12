@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+
+// IMPORT ACTION CREATOR FUNCTIONS --> pass them into CONNECT function --> ADDED TO PROPS
 import { increment, decrement } from '../actions';
 
 class Counter extends Component {
@@ -13,6 +15,18 @@ class Counter extends Component {
         // increments after waiting for one second
     };
 
+    // INVOKE PASSED ACTION CREATOR
+    // - increment - //
+        call_INCREMENT = e => {
+            e.preventDefault()
+            this.props.increment(this.props.count)
+        }
+    // - decrement - //
+        call_DECREMENT = e => {
+            e.preventDefault()
+            this.props.decrement(this.props.count)
+        }
+
     render() {
         // Fill in the two button onClick methods
         // Upon clicking these buttons, the count
@@ -20,13 +34,17 @@ class Counter extends Component {
         return (
             <p>
                 Clicked: {this.props.count} times
-                <button onClick={() => {/* Fill me in */ }}>
+                <button 
+                    onClick={this.call_INCREMENT}
+                >
                     +
                 </button>
-                <button onClick={() => {/* Fill me in */ }}>
+                <button 
+                    onClick={this.call_DECREMENT}
+                >
                     -
                 </button>
-                 {/* Uncomment these button tags if you got
+                {/* Uncomment these button tags if you got
                 around to implementing the extra credit functions */}
                 {/* <button onClick={this.incrementIfOdd}>
                     Increment if odd

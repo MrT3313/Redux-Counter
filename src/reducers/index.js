@@ -1,4 +1,6 @@
-import { INCREMENT, DECREMENT } from '../actions';
+
+// IMPORT ACTION CREATORS
+  import { INCREMENT, DECREMENT } from '../actions';
 
 const initialState = {
   count: 0
@@ -9,13 +11,33 @@ const initialState = {
 // of our redux store, along with an action created
 // by our action creator. What does the reducer
 // need to do with the count in each case?
+
+// CREATE REDUCER 
+  // -- function
+  // -- takes in state & action as arguments
+  // -- returns a state object
 export default (state = initialState, action) => {
+  // DEBUGGING
+    console.log(action)
+  
   switch (action.type) {
     case INCREMENT:
-    // Fill in the body of this case
+      return {
+        ...state,
+        count: action.payload + 1
+      }
+
     case DECREMENT:
-    // Fill in the body of this case
+      return {
+        ...state,
+        count: action.payload - 1
+      }
     default:
       return state;
   }
 };
+
+
+// *** CONNECTIONS *** //
+
+// EXPORT
